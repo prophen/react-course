@@ -62,7 +62,7 @@ function App() {
               <InputBox
                 label="to"
                 currencyOptions={options}
-                amount={convertedAmount.toFixed(2)}
+                amount={convertedAmount}
                 onCurrencyChange={(currency) => setTo(currency)}
                 selectedCurrency={to}
                 amountDisabled
