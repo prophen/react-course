@@ -44,9 +44,10 @@ export default function PostForm({ post }) {
         const fileId = file.$id;
         data.featuredImage = fileId;
         const dbPost = await appwriteService.createPost({
-          data,
+          ...data,
           userId: userData.$id,
         });
+
         if (dbPost) {
           navigate(`/post/${dbPost.$id}`);
         }
@@ -80,7 +81,7 @@ export default function PostForm({ post }) {
           {...register("title", { required: true })}
         />
         <Input
-          label="Slug: "
+          label="Slug :"
           placeholder="Slug"
           className="mb-4"
           {...register("slug", { required: true })}
