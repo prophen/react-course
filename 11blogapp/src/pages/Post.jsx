@@ -4,7 +4,7 @@ import appwriteService from "../appwrite/config";
 import Button from "../components/Button";
 import Container from "../components/container/Container";
 import parse from "html-react-parser";
-import { UseSelector, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function Post() {
   const [post, setPost] = useState(null);

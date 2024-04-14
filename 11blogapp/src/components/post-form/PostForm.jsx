@@ -5,7 +5,7 @@ import Input from "../Input";
 import RTE from "../RTE";
 import Select from "../Select";
 import appwriteService from "../../appwrite/config";
-import { UseSelector, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function PostForm({ post }) {

@@ -5,7 +5,7 @@ import Button from "./Button";
 import Input from "./Input";
 import Logo from "./Logo";
 import { useForm } from "react-hook-form";
-import { UseDispatch, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login as authLogin } from "../store/authSlice";
 
 function Login() {
