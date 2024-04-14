@@ -13,6 +13,7 @@ export class Service {
     this.databases = new Databases(this.client);
     this.bucket = new Storage(this.client);
   }
+
   async getPost(slug) {
     try {
       return await this.databases.getDocument(
@@ -77,7 +78,8 @@ export class Service {
       return false;
     }
   }
-  async deletePost(slug, { title, content, featuredImage, status }) {
+
+  async deletePost(slug) {
     try {
       await this.databases.deleteDocument(
         conf.appwriteDatabaseId,
@@ -86,12 +88,13 @@ export class Service {
       );
       return true;
     } catch (error) {
-      console.log("Appwrite service :: deletePost() :: ", error);
+      console.log("Appwrite service :: deleteDocument() :: ", error);
       return false;
     }
   }
 
   // storage service
+
   async uploadFile(file) {
     try {
       return await this.bucket.createFile(
@@ -104,6 +107,7 @@ export class Service {
       return false;
     }
   }
+
   async deleteFile(fileId) {
     try {
       return await this.bucket.deleteFile(conf.appwriteBucketId, fileId);
