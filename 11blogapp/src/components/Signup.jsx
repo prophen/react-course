@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import authService from "../appwrite/auth";
 import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import Button from "./Button";
 import Input from "./Input";
 import Logo from "./Logo";
@@ -17,10 +17,10 @@ function Signup() {
   const create = async (data) => {
     setError("");
     try {
+      console.log(data);
       const userData = await authService.createAccount(data);
       if (userData) {
         const userData = await authService.getCurrentUser();
-        getCurrentUser();
         if (userData) dispatch(login({ userData }));
         navigate("/");
       }
@@ -28,6 +28,7 @@ function Signup() {
       setError(error.message);
     }
   };
+
   return (
     <div className="flex items-center justify-center">
       <div
